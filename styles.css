@@ -1,0 +1,78 @@
+
+body {
+  background-image: url("architecture-background-buildings.jpg");
+  background-repeat: repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll
+  ;
+}
+
+h1 {
+  background-color: grey;
+  text-align: center;
+}
+
+h2{
+    background-color:  grey;
+}
+
+h3{
+
+  color: grey;
+  text-align: center;
+
+}
+
+.jumbotron {
+  background-color: lightblue;
+  background-image: url("architecture-background-buildings.jpg");
+  background-size: cover;
+}
+
+p {
+  background-color: black;
+  color: grey;
+  text-align: center;
+
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+}
+
+.nav-link {
+
+  color: lightblue;
+}
+
+.nav-bar{
+  padding: 0rem 0rem;
+}
+
+.card-body{
+
+  background-color: grey;
+}
+
+.card-footer{
+
+  background-color: black;
+}
+
+.address {
+
+  background-color: black;
+
+
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  text-align: center;
+}
+
+.a{
+
+  color: green;
+}

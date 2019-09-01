@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3" lang=en>Form</h1>
+
+    <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+    <form action="/form" method="post" onsubmit="isOneChecked()">
+
+        <!-- TODO -->
+         <div class="form-group" >
+            <input autocomplete="off"  class="form-control" name="name" placeholder="Name" type="text" required>
+        </div>
+
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Enter email" required>
+            <small id="emailHelp" class="form-text text-muted">We will share your email hahahaha.</small>
+        </div>
+
+        <div class="form-group" >
+
+                <div class="form-check" >
+                    <input class="form-check-input" id="Beater" name="position" type="radio" value="Beater" required>
+                    <label class="form-check-label" for="Beater">
+                        Beater
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" id="Chaser" name="position" type="radio" value="Chaser" >
+                    <label class="form-check-label" for="Chaser">
+                        Chaser
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" id="Keeper" name="position" type="radio" value="Keeper">
+                    <label class="form-check-label" for="Keeper">
+                        Keeper
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" id="Seeker" name="position" type="radio" value="Seeker">
+                    <label class="form-check-label" for="Seeker">
+                        Seeker
+                    </label>
+                </div>
+            </div>
+           <br>
+          <div class="form-group">
+            <label for="Qaulity">Qaulity</label>
+            <select multiple class="form-control" id="Qaulity" name="qaulity" required>
+              <option value="good">1</option>
+              <option value="awsome">2</option>
+              <option value="shitty">3</option>
+              <option value="really bad">4</option>
+              <option value="gtfoh">5</option>
+            </select>
+          </div>
+
+        <div class="form-group" >
+            <label for="practice">Select Practice</label>
+            <select multiple class="form-control" id = "practice" name="practice" required>
+
+                <option value="Real estate">real estate</option>
+                <option value="Corporations">corporations</option>
+                <option value="Estates">Estates</option>
+                <option value="Leasing">Leasing</option>
+            </select>
+        </div>
+
+
+        <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
+        <button class="btn btn-primary" type="submit" onclick="isOneChecked()">Submit</button>
+
+    </form>
+
+
+<script>
+    function isOneChecked() {
+  // All <input> tags...
+    var chx = document.getElementsByTagName('input');
+    for (var i=0; i<chx.length; i++) {
+    // If you have more than one radio group, also check the name attribute
+    // for the one you want as in && chx[i].name == 'choose'
+    // Return true from the function on first match of a checked item
+    if (chx[i].type == 'radio' && chx[i].checked) {
+      return true;
+    }
+  }
+  // End of the loop, return false
+  window.alert("Choose one radio options");
+  return false;
+}
+
+    </script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+{% endblock %}

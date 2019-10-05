@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    information
+{% endblock %}
+
+{% block main %}
+      <!-- http://getbootstrap.com/docs/4.1/components/alerts/ -->
+    <h1>information</h1>
+    <table class = " table">
+        <thead>
+            <tr>
+                <th>Company Name</th>
+                <th>LatestPrice</th>
+                <th>symbol</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+
+        {% for info in information.values() %}
+
+            {%print(info)%}
+
+        {% endfor %}
+        <tr>
+        {% for key,value in information.items() %}
+
+
+            <td>{{value}} </td>
+
+
+        {% endfor %}
+        </tr>
+
+
+
+        </tbody>
+    </table>
+{% endblock %}

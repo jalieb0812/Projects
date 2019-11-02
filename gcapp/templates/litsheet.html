@@ -1,0 +1,135 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    LITIGATION SHEET
+{% endblock %}
+
+{% block main %}
+
+<script>
+
+$(document).ready(function() {
+    $('#litigation_table').DataTable( {
+
+        responsive: true,
+        dom: 'Bfrtip',
+
+        scrollY:        '50vh',
+        scrollCollapse: true,
+        paging:         false,
+
+        "order": [[ 0, "desc" ]],
+
+        buttons: [
+            'copy', 'colvis', 'excel',  'csv', 'pdf', 'print',
+        ],
+
+        "columnDefs": [
+            {
+                "targets": [ 0 ],
+                "visible": false,
+                "searchable": true
+            },
+            {
+                "targets": [ 13 ],
+                "visible": false,
+                "searchable": true
+            }
+        ]
+
+    } );
+
+
+} );
+
+</script>
+
+
+ <h3>Litigation Records History</h3>
+
+
+
+    <table class = " table display table-bordered" id = "litigation_table" style="width:100%">
+        <thead>
+            <tr>
+                <th id = "row_entryid">Entry_ID</th>
+                <th data-priority="1" id = "row_client">Client</th>
+                <th data-priority="2" id = "row_casename">Case_Name</th>
+                <th data-priority="8" id = "row_court">Court</th>
+                <th data-priority="7" id = "row_docketno">Docket_No</th>
+               <th  data-priority="4" id = "row_parties"> Parties</th>
+               <th  data-priority="5" id =  "row_dattorney"> Defendant_Attorney</th>
+                <th data-priority="5" id = "row_pattorney"> Plaintiff_Attorney</th>
+                <th data-priority="3" id = "row_description">Description_of_the_Matter</th>
+                <th data-priority="4" id = "row_casestatus">Case_Status</th>
+                <th data-priority="4" id = "row_upcomingdeadlines">Upcoming_Deadlines</th>
+                <th data-priority="8" id = "row_notes">Notes</th>
+                <th data-priority="9" id = "row_date">Date_Entry</th>
+                <th data-priority="10" id = "row_userid">User_ID</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+
+
+              {% for matter in litigation_matters %}
+        <tr id = "tablerow" >
+
+            <td> {{ matter['Entry_ID']}}</td>
+            <td> {{ matter['Client']}}</td>
+            <td> {{ matter['Case_Name']}}</td>
+            <td> {{ matter['Court']}}</td>
+            <td> {{ matter['Docket_No']}}</td>
+            <td> {{ matter['Parties']}}</td>
+            <td> {{ matter['Outside_Counsel_Defendant_Attorney']}}</td>
+            <td> {{ matter['Opposing_Counsel_Plaintiff_Attorney']}}</td>
+            <td> {{ matter['Description']}}</td>
+            <td> {{ matter['Case_Status']}}</td>
+            <td> {{ matter['Upcoming_Deadlines']}}</td>
+            <td> {{ matter['Notes']}}</td>
+            <td> {{ matter['Date_Entry']}}</td>
+            <td> {{ matter['User_ID']}}</td>
+
+
+        </tr>
+        {% endfor %}
+
+        </tbody>
+
+          <tfoot>
+            <tr>
+                <th>Entry_ID</th>
+                <th>Client</th>
+                <th>Case_Name</th>
+                <th>Court</th>
+                <th>Docket_No</th>
+               <th> Parties</th>
+               <th> Outside_Counsel_
+               Defendant_Attorney</th>
+                <th>Opposing_Counsel_
+                Plaintiff_Attorney</th>
+                <th>Description_of_the_Matter</th>
+                <th>Case_Status</th>
+                <th>Upcoming_Deadlines</th>
+                <th>Notes</th>
+                <th>Date_Entry</th>
+                <th>User_ID</th>
+            </tr>
+        </tfoot>
+    </table>
+
+
+
+
+
+        </main>
+
+
+
+
+
+
+
+
+{% endblock %}
